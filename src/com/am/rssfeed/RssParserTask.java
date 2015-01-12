@@ -1,4 +1,4 @@
-package com.example.rssfeed;
+package com.am.rssfeed;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -75,6 +75,8 @@ public class RssParserTask extends AsyncTask<String, Integer, RssListAdapter> {
 							currentItem.setTitle(parser.nextText());
 						} else if (tag.equals("description")) {
 							currentItem.setDescription(parser.nextText());
+						} else if (tag.equals("link")) {
+							currentItem.setLink(parser.nextText());
 						}
 					}
 					break;

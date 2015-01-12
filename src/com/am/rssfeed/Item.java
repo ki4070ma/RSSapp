@@ -1,4 +1,4 @@
-package com.example.rssfeed;
+package com.am.rssfeed;
 
 //Item.java
 public class Item {
@@ -6,10 +6,13 @@ public class Item {
 	private CharSequence mTitle;
 	// ‹LŽ–‚Ì–{•¶
 	private CharSequence mDescription;
+	//
+	private CharSequence mLink;
 
 	public Item() {
 		mTitle = "";
 		mDescription = "";
+		mLink = "";
 	}
 
 	public CharSequence getDescription() {
@@ -26,5 +29,13 @@ public class Item {
 
 	public void setTitle(CharSequence title) {
 		mTitle = title;
+	}
+
+	public void setLink(CharSequence link) {
+		mLink = link;
+	}
+
+	public CharSequence getLink() {
+		return mLink;
 	}
 }

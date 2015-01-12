@@ -1,4 +1,4 @@
-package com.example.rssfeed;
+package com.am.rssfeed;
 
 import java.util.List;
 
