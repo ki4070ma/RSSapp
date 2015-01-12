@@ -16,8 +16,9 @@ public class WebViewActivity extends Activity {
 
 	private WebView mWebView;
 
-	LinearLayout layout_ad;// 広告表示用スペース
-	AdView adView;
+	private LinearLayout mLayoutAd;
+
+	private AdView mAdView;
 
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
@@ -28,23 +29,21 @@ public class WebViewActivity extends Activity {
 
 		setContentView(R.layout.webview);
 
-		// レイアウトで指定したWebViewのIDを指定する。
 		mWebView = (WebView) findViewById(R.id.webView);
 
-		// リンクをタップしたときに標準ブラウザを起動させない
 		mWebView.setWebViewClient(new WebViewClient());
 
 		mWebView.loadUrl(URL);
 
-		adView = new AdView(this);
-		adView.setAdUnitId("ca-app-pub-9552058847412056/1027930595");
-		adView.setAdSize(AdSize.BANNER);
+		mAdView = new AdView(this);
+		mAdView.setAdUnitId("ca-app-pub-9552058847412056/1027930595");
+		mAdView.setAdSize(AdSize.BANNER);
 
-		layout_ad = (LinearLayout) findViewById(R.id.layout_ad);
-		layout_ad.addView(adView);
+		mLayoutAd = (LinearLayout) findViewById(R.id.layout_ad);
+		mLayoutAd.addView(mAdView);
 
 		AdRequest adRequest = new AdRequest.Builder().build();
-		adView.loadAd(adRequest);
+		mAdView.loadAd(adRequest);
 	}
 
 	@Override
@@ -59,19 +58,19 @@ public class WebViewActivity extends Activity {
 
 	@Override
 	public void onPause() {
-		adView.pause();
+		mAdView.pause();
 		super.onPause();
 	}
 
 	@Override
 	public void onResume() {
 		super.onResume();
-		adView.resume();
+		mAdView.resume();
 	}
 
 	@Override
 	public void onDestroy() {
-		adView.destroy();
+		mAdView.destroy();
 		super.onDestroy();
 	}
 }

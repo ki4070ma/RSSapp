@@ -11,51 +11,42 @@ import android.app.ProgressDialog;
 import android.os.AsyncTask;
 import android.util.Xml;
 
-//RssParserTask.java
 public class RssParserTask extends AsyncTask<String, Integer, RssListAdapter> {
 	private RssReaderActivity mActivity;
 	private RssListAdapter mAdapter;
 	private ProgressDialog mProgressDialog;
 
-	// コンストラクタ
 	public RssParserTask(RssReaderActivity activity, RssListAdapter adapter) {
 		mActivity = activity;
 		mAdapter = adapter;
 	}
 
-	// タスクを実行した直後にコールされる
 	@Override
 	protected void onPreExecute() {
-		// プログレスバーを表示する
 		mProgressDialog = new ProgressDialog(mActivity);
 		mProgressDialog.setMessage("Now Loading...");
 		mProgressDialog.show();
 	}
 
-	// バックグラウンドにおける処理を担う。タスク実行時に渡された値を引数とする
 	@Override
 	protected RssListAdapter doInBackground(String... params) {
 		RssListAdapter result = null;
 		try {
-			// HTTP経由でアクセスし、InputStreamを取得する
 			URL url = new URL(params[0]);
 			InputStream is = url.openConnection().getInputStream();
 			result = parseXml(is);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		// ここで返した値は、onPostExecuteメソッドの引数として渡される
 		return result;
 	}
 
-	// メインスレッド上で実行される
 	@Override
 	protected void onPostExecute(RssListAdapter result) {
 		mProgressDialog.dismiss();
 		mActivity.setListAdapter(result);
 	}
 
-	// XMLをパースする
 	public RssListAdapter parseXml(InputStream is) throws IOException,
 			XmlPullParserException {
 		XmlPullParser parser = Xml.newPullParser();
@@ -73,7 +64,6 @@ public class RssParserTask extends AsyncTask<String, Integer, RssListAdapter> {
 					} else if (currentItem != null) {
 						if (tag.equals("title")) {
 							currentItem.setTitle(parser.nextText());
-
 						} else if (tag.equals("link")) {
 							currentItem.setLink(parser.nextText());
 						} else if (tag.equals("author")) {
