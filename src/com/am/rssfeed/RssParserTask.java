@@ -73,10 +73,13 @@ public class RssParserTask extends AsyncTask<String, Integer, RssListAdapter> {
 					} else if (currentItem != null) {
 						if (tag.equals("title")) {
 							currentItem.setTitle(parser.nextText());
-						} else if (tag.equals("description")) {
-							currentItem.setDescription(parser.nextText());
+
 						} else if (tag.equals("link")) {
 							currentItem.setLink(parser.nextText());
+						} else if (tag.equals("author")) {
+							currentItem.setSite((parser.nextText()));
+						} else if (tag.equals("pubDate")) {
+							currentItem.setDate((parser.nextText()));
 						}
 					}
 					break;

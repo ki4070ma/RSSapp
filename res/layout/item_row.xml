@@ -9,15 +9,19 @@
         android:id="@+id/item_title"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:lines="1"
         android:textColor="#ffffff"
         android:textSize="18sp" />
 
     <TextView
-        android:id="@+id/item_descr"
+        android:id="@+id/item_site"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:ellipsize="end"
-        android:lines="2" />
+        android:gravity="right" />
+
+    <TextView
+        android:id="@+id/item_date"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:gravity="right" />
 
 </LinearLayout>

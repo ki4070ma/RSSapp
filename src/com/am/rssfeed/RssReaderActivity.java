@@ -34,11 +34,11 @@ public class RssReaderActivity extends ListActivity {
 		// Itemオブジェクトを保持するためのリストを生成し、アダプタに追加する
 		mItems = new ArrayList<Item>();
 		mAdapter = new RssListAdapter(this, mItems);
-		
+
 		// タスクを起動する
 		RssParserTask task = new RssParserTask(this, mAdapter);
 		task.execute(RSS_FEED_URL);
-		
+
 		adView = new AdView(this);
 		adView.setAdUnitId("ca-app-pub-9552058847412056/1027930595");
 		adView.setAdSize(AdSize.BANNER);
@@ -74,8 +74,6 @@ public class RssReaderActivity extends ListActivity {
 		Item item = mItems.get(position);
 		// Intent intent = new Intent(this, ItemDetailActivity.class);
 		Intent intent = new Intent(this, WebViewActivity.class);
-		// intent.putExtra("TITLE", item.getTitle());
-		// intent.putExtra("DESCRIPTION", item.getDescription());
 		intent.putExtra("link", item.getLink());
 		startActivity(intent);
 	}

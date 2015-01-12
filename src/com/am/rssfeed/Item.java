@@ -4,23 +4,15 @@ package com.am.rssfeed;
 public class Item {
 	// 記事のタイトル
 	private CharSequence mTitle;
-	// 記事の本文
-	private CharSequence mDescription;
-	//
+	// 記事のサイト名
+	private CharSequence mSite;
+	// 記事の更新日
+	private CharSequence mDate;
 	private CharSequence mLink;
 
 	public Item() {
 		mTitle = "";
-		mDescription = "";
 		mLink = "";
-	}
-
-	public CharSequence getDescription() {
-		return mDescription;
-	}
-
-	public void setDescription(CharSequence description) {
-		mDescription = description;
 	}
 
 	public CharSequence getTitle() {
@@ -37,5 +29,21 @@ public class Item {
 
 	public CharSequence getLink() {
 		return mLink;
+	}
+
+	public CharSequence getSite() {
+		return mSite;
+	}
+
+	public void setSite(CharSequence site) {
+		mSite = site;
+	}
+
+	public CharSequence getDate() {
+		return mDate;
+	}
+
+	public void setDate(CharSequence date) {
+		mDate = date;
 	}
 }

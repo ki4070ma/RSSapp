@@ -13,7 +13,8 @@ import android.widget.TextView;
 public class RssListAdapter extends ArrayAdapter<Item> {
 	private LayoutInflater mInflater;
 	private TextView mTitle;
-	private TextView mDescr;
+	private TextView mSite;
+	private TextView mDate;
 
 	public RssListAdapter(Context context, List<Item> objects) {
 		super(context, 0, objects);
@@ -37,9 +38,13 @@ public class RssListAdapter extends ArrayAdapter<Item> {
 			String title = item.getTitle().toString();
 			mTitle = (TextView) view.findViewById(R.id.item_title);
 			mTitle.setText(title);
-			String descr = item.getDescription().toString();
-			mDescr = (TextView) view.findViewById(R.id.item_descr);
-			mDescr.setText(descr);
+			String site = item.getSite().toString();
+			mSite = (TextView) view.findViewById(R.id.item_site);
+			mSite.setText(site);
+			String date = item.getDate().toString();
+			mDate = (TextView) view.findViewById(R.id.item_date);
+			mDate.setText(date);
+
 		}
 		return view;
 	}
