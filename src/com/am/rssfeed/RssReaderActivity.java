@@ -15,7 +15,7 @@ import com.google.android.gms.ads.AdSize;
 import com.google.android.gms.ads.AdView;
 
 public class RssReaderActivity extends ListActivity {
-	private static final String RSS_FEED_URL = "http://www.rssmix.com/u/7347120/rss.xml";
+	private static final String RSS_FEED_URL = "http://www.rssmix.com/u/7400410/rss.xml";
 	private RssListAdapter mAdapter;
 	private ArrayList<Item> mItems;
 	public static final int MENU_ITEM_RELOAD = Menu.FIRST;

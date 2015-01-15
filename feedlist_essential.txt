@@ -1,0 +1,7 @@
+http://blog.livedoor.jp/itsoku/index.rdf
+http://www.mudainodocument.com/index.rdf
+http://blog.livedoor.jp/nwknews/index.rdf
+http://blog.livedoor.jp/dqnplus/index.rdf
+http://hamusoku.com/index.rdf
+http://sierblog.com/index.rdf
+http://itato.blog59.fc2.com/?xml
